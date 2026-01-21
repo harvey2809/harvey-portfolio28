@@ -15,6 +15,8 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
+import { useLocation, useNavigate } from "react-router-dom";
+
 
 const drawerWidth = 240;
 const navItems = [['Expertise', 'expertise'], ['History', 'history'], ['Projects', 'projects'], ['Contact', 'contact']];
@@ -45,17 +47,25 @@ function Navigation({parentToChild, modeChange}: any) {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+  const location = useLocation();
+  const navigate = useNavigate();
+
 
   const scrollToSection = (section: string) => {
-    console.log(section)
-    const expertiseElement = document.getElementById(section);
-    if (expertiseElement) {
-      expertiseElement.scrollIntoView({ behavior: 'smooth' });
-      console.log('Scrolling to:', expertiseElement);  // Debugging: Ensure the element is found
-    } else {
-      console.error('Element with id "expertise" not found');  // Debugging: Log error if element is not found
-    }
+  const go = () => {
+    const el = document.getElementById(section);
+    if (el) el.scrollIntoView({ behavior: "smooth" });
   };
+
+  // If we are NOT on home, go home first, then scroll
+  if (location.pathname !== "/") {
+    navigate("/");
+    setTimeout(go, 50); // wait for home to render
+  } else {
+    go();
+  }
+ };
+
 
   const drawer = (
     <Box className="navigation-bar-responsive" onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>

@@ -1,4 +1,7 @@
 import React, {useState, useEffect} from "react";
+import { Routes, Route } from "react-router-dom";
+import ProjectDetails from "./components/ProjectDetails";
+
 import {
   Main,
   Timeline,
@@ -27,18 +30,28 @@ function App() {
       }, []);
 
     return (
-    <div className={`main-container ${mode === 'dark' ? 'dark-mode' : 'light-mode'}`}>
-        <Navigation parentToChild={{mode}} modeChange={handleModeChange}/>
-        <FadeIn transitionDuration={700}>
-            <Main/>
-            <Expertise/>
-            <Timeline/>
-            <Project/>
-            <Contact/>
-        </FadeIn>
-        <Footer />
-    </div>
-    );
+  <div className={`main-container ${mode === "dark" ? "dark-mode" : "light-mode"}`}>
+    <Navigation parentToChild={{ mode }} modeChange={handleModeChange} />
+
+    <Routes>
+      <Route
+        path="/"
+        element={
+          <FadeIn transitionDuration={700}>
+            <Main />
+            <Expertise />
+            <Timeline />
+            <Project />
+            <Contact />
+          </FadeIn>
+        }
+      />
+      <Route path="/projects/:slug" element={<ProjectDetails />} />
+    </Routes>
+
+    <Footer />
+  </div>
+);
 }
 
 export default App;

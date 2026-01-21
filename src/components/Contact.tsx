@@ -1,52 +1,129 @@
-import React, { useRef, useState } from 'react';
-import '../assets/styles/Contact.scss';
-// import emailjs from '@emailjs/browser';
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import SendIcon from '@mui/icons-material/Send';
-import TextField from '@mui/material/TextField';
+import React, { useRef, useState } from "react";
+import "../assets/styles/Contact.scss";
+import emailjs from "@emailjs/browser";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import SendIcon from "@mui/icons-material/Send";
+import TextField from "@mui/material/TextField";
+
+type FormState = "idle" | "sending" | "sent" | "error";
 
 function Contact() {
-
-  const [name, setName] = useState<string>('');
-  const [email, setEmail] = useState<string>('');
-  const [message, setMessage] = useState<string>('');
+  const [name, setName] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
+  const [message, setMessage] = useState<string>("");
 
   const [nameError, setNameError] = useState<boolean>(false);
   const [emailError, setEmailError] = useState<boolean>(false);
   const [messageError, setMessageError] = useState<boolean>(false);
 
-  const form = useRef();
+  const [status, setStatus] = useState<FormState>("idle");
+  const [statusText, setStatusText] = useState<string>("");
+  const contactFieldSx = {
+  "& .MuiOutlinedInput-root": {
+    backgroundColor: "#fff",
+  },
+  "& .MuiOutlinedInput-input": {
+    color: "#000",
+    WebkitTextFillColor: "#000",
+    caretColor: "#000",
+  },
+  "& .MuiOutlinedInput-input::placeholder": {
+    color: "rgba(0,0,0,0.6)",
+    opacity: 1,
+    WebkitTextFillColor: "rgba(0,0,0,0.6)",
+  },
+  "& .MuiInputLabel-root": {
+    color: "rgba(0,0,0,0.75)",
+  },
+  "& .MuiOutlinedInput-notchedOutline": {
+    borderColor: "rgba(0,0,0,0.25)",
+  },
+  "& .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline": {
+    borderColor: "rgba(0,0,0,0.45)",
+  },
+  "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline": {
+    borderColor: "rgba(0,0,0,0.7)",
+  },
+};
 
-  const sendEmail = (e: any) => {
+  const blackFieldStyles = {
+  "& .MuiOutlinedInput-input": {
+    color: "#000",
+    WebkitTextFillColor: "#000", // ✅ this is the key in Chrome
+  },
+
+  "& .MuiOutlinedInput-input::placeholder": {
+    color: "rgba(0,0,0,0.6)",
+    opacity: 1,
+    WebkitTextFillColor: "rgba(0,0,0,0.6)",
+  },
+
+  // ✅ kill Chrome autofill weird colors
+  "& input:-webkit-autofill": {
+    WebkitBoxShadow: "0 0 0 1000px #fff inset",
+    WebkitTextFillColor: "#000",
+    caretColor: "#000",
+  },
+
+  "& .MuiInputLabel-root": { color: "#000" },
+  "& .MuiInputLabel-root.Mui-focused": { color: "#000" },
+
+  "& .MuiOutlinedInput-notchedOutline": { borderColor: "rgba(0,0,0,0.35)" },
+  "&:hover .MuiOutlinedInput-notchedOutline": { borderColor: "rgba(0,0,0,0.6)" },
+  "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline": {
+    borderColor: "#000",
+  },
+
+  "& .MuiFormHelperText-root": { color: "rgba(0,0,0,0.7)" },
+ };
+
+
+
+
+
+  const formRef = useRef<HTMLFormElement | null>(null);
+
+  const sendEmail = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    setNameError(name === '');
-    setEmailError(email === '');
-    setMessageError(message === '');
+    const nErr = name.trim() === "";
+    const eErr = email.trim() === "";
+    const mErr = message.trim() === "";
 
-    /* Uncomment below if you want to enable the emailJS */
+    setNameError(nErr);
+    setEmailError(eErr);
+    setMessageError(mErr);
 
-    // if (name !== '' && email !== '' && message !== '') {
-    //   var templateParams = {
-    //     name: name,
-    //     email: email,
-    //     message: message
-    //   };
+    if (nErr || eErr || mErr) return;
 
-    //   console.log(templateParams);
-    //   emailjs.send('service_id', 'template_id', templateParams, 'api_key').then(
-    //     (response) => {
-    //       console.log('SUCCESS!', response.status, response.text);
-    //     },
-    //     (error) => {
-    //       console.log('FAILED...', error);
-    //     },
-    //   );
-    //   setName('');
-    //   setEmail('');
-    //   setMessage('');
-    // }
+    // ✅ Put REAL values here (from EmailJS dashboard)
+    const SERVICE_ID = process.env.REACT_APP_EMAILJS_SERVICE_ID || "service_uex8i84";
+    const TEMPLATE_ID = process.env.REACT_APP_EMAILJS_TEMPLATE_ID || "template_cupemaq";
+    const PUBLIC_KEY = process.env.REACT_APP_EMAILJS_PUBLIC_KEY || "j-y68wgMLno4Ij8EI";
+
+    setStatus("sending");
+    setStatusText("");
+
+    try {
+      await emailjs.send(
+        SERVICE_ID,
+        TEMPLATE_ID,
+        { name, email, message },
+        { publicKey: PUBLIC_KEY }
+      );
+
+      setStatus("sent");
+      setStatusText("Sent. I’ll get back to you soon.");
+
+      setName("");
+      setEmail("");
+      setMessage("");
+    } catch (err) {
+      console.error(err);
+      setStatus("error");
+      setStatusText("Failed to send. Try again later or email me directly.");
+    }
   };
 
   return (
@@ -54,58 +131,63 @@ function Contact() {
       <div className="items-container">
         <div className="contact_wrapper">
           <h1>Contact Me</h1>
-          <p>Got a project waiting to be realized? Let's collaborate and make it happen!</p>
+          <p>Get in touch.</p>
+
           <Box
-            ref={form}
-            component="form"
-            noValidate
-            autoComplete="off"
-            className='contact-form'
-          >
-            <div className='form-flex'>
+          component="form"
+          onSubmit={sendEmail}
+          noValidate
+          autoComplete="off"
+          className="contact-form"
+>
+
+            <div className="form-flex">
               <TextField
                 required
-                id="outlined-required"
                 label="Your Name"
                 placeholder="What's your name?"
                 value={name}
-                onChange={(e) => {
-                  setName(e.target.value);
-                }}
+                onChange={(e) => setName(e.target.value)}
                 error={nameError}
-                helperText={nameError ? "Please enter your name" : ""}
+                helperText={nameError ? "Please enter your name" : " "}
+                
+
               />
+
               <TextField
                 required
-                id="outlined-required"
                 label="Email / Phone"
                 placeholder="How can I reach you?"
                 value={email}
-                onChange={(e) => {
-                  setEmail(e.target.value);
-                }}
+                onChange={(e) => setEmail(e.target.value)}
                 error={emailError}
-                helperText={emailError ? "Please enter your email or phone number" : ""}
+                helperText={emailError ? "Please enter your email or phone number" : " "}
+                
               />
             </div>
+
             <TextField
               required
-              id="outlined-multiline-static"
               label="Message"
               placeholder="Send me any inquiries or questions"
               multiline
               rows={10}
               className="body-form"
               value={message}
-              onChange={(e) => {
-                setMessage(e.target.value);
-              }}
+              onChange={(e) => setMessage(e.target.value)}
               error={messageError}
-              helperText={messageError ? "Please enter the message" : ""}
+              helperText={messageError ? "Please enter the message" : " "}
+              
             />
-            <Button variant="contained" endIcon={<SendIcon />} onClick={sendEmail}>
-              Send
+
+            <Button type="submit" variant="contained" endIcon={<SendIcon />}>
+             Send
             </Button>
+
+
+            {status !== "idle" && (
+              <p style={{ marginTop: 12, opacity: 0.9 }}>{statusText}</p>
+            )}
           </Box>
         </div>
       </div>
