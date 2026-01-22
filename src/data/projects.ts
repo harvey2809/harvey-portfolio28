@@ -104,7 +104,7 @@ export const projects: Project[] = [
     thumbnail: nhs,
     heroImage: nhs,
     gallery: [Picture1,Picture2,Picture3,Picture4,Picture5],
-    pdf: "https://harvey2809.github.io/harvey-portfolio28/pdfs/NaturalHeritageEvaluation%20Project.pdf",
+    pdf: "hhttps://github.com/harvey2809/harvey-portfolio28/blob/master/public/pdfs/NaturalHeritageEvaluation%20Project.pdf",
   },
   
 ];
