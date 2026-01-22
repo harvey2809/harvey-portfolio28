@@ -1,0 +1,39 @@
+{
+  "files": {
+    "main.css": "/harvey-portfolio28/static/css/main.d6daf41a.css",
+    "main.js": "/harvey-portfolio28/static/js/main.b7aad253.js",
+    "static/js/453.bd10a2ec.chunk.js": "/harvey-portfolio28/static/js/453.bd10a2ec.chunk.js",
+    "static/media/mid2.png": "/harvey-portfolio28/static/media/mid2.c205debbd372b88374f5.png",
+    "static/media/Picture7.png": "/harvey-portfolio28/static/media/Picture7.1724ae255cc4ef57cfc3.png",
+    "static/media/park1.png": "/harvey-portfolio28/static/media/park1.8f5415758dc02547d2b8.png",
+    "static/media/Picture1.png": "/harvey-portfolio28/static/media/Picture1.2a6e00d8767743ccc1d4.png",
+    "static/media/restorationplan.png": "/harvey-portfolio28/static/media/restorationplan.49d69aa19d42a7163ebf.png",
+    "static/media/provincialpark.png": "/harvey-portfolio28/static/media/provincialpark.e53bd89f620fcfc28da8.png",
+    "static/media/Picture9.png": "/harvey-portfolio28/static/media/Picture9.0d72c70130a701e713e1.png",
+    "static/media/Picture8.png": "/harvey-portfolio28/static/media/Picture8.361ef1dd813614c47950.png",
+    "static/media/nhs.png": "/harvey-portfolio28/static/media/nhs.4dcaef3890b7f44e49c8.png",
+    "static/media/Picture4.png": "/harvey-portfolio28/static/media/Picture4.048908838a20c5b2cbcd.png",
+    "static/media/mid5.png": "/harvey-portfolio28/static/media/mid5.5e3c90ad999e907b1288.png",
+    "static/media/park3.png": "/harvey-portfolio28/static/media/park3.e88f94af9e7690d75848.png",
+    "static/media/designpage.png": "/harvey-portfolio28/static/media/designpage.9d0e21648a1edc42cb50.png",
+    "static/media/mid1.png": "/harvey-portfolio28/static/media/mid1.7cad8d170a2108ac7e2a.png",
+    "static/media/mid3.png": "/harvey-portfolio28/static/media/mid3.bc9e80b15e4d424ab62a.png",
+    "static/media/mid4.png": "/harvey-portfolio28/static/media/mid4.54a5c754c66531579ed3.png",
+    "static/media/Picture10.jpg": "/harvey-portfolio28/static/media/Picture10.72d2a1f03c4563d22b9d.jpg",
+    "static/media/Picture5.png": "/harvey-portfolio28/static/media/Picture5.e66aab7ed313d1b4c0d3.png",
+    "static/media/bg-light.png": "/harvey-portfolio28/static/media/bg-light.bac0efb485244a522981.png",
+    "static/media/bg-dark.png": "/harvey-portfolio28/static/media/bg-dark.f420c6b8458af72de935.png",
+    "static/media/Picture3.png": "/harvey-portfolio28/static/media/Picture3.340fcb18b3293cd7c545.png",
+    "static/media/Picture2.png": "/harvey-portfolio28/static/media/Picture2.39ed29bbfad545dfd3cb.png",
+    "static/media/park2.png": "/harvey-portfolio28/static/media/park2.dfbe41fc5d9d764c3636.png",
+    "static/media/Picture11.png": "/harvey-portfolio28/static/media/Picture11.1ed1b1b8622d24d97853.png",
+    "index.html": "/harvey-portfolio28/index.html",
+    "main.d6daf41a.css.map": "/harvey-portfolio28/static/css/main.d6daf41a.css.map",
+    "main.b7aad253.js.map": "/harvey-portfolio28/static/js/main.b7aad253.js.map",
+    "453.bd10a2ec.chunk.js.map": "/harvey-portfolio28/static/js/453.bd10a2ec.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d6daf41a.css",
+    "static/js/main.b7aad253.js"
+  ]
+}
