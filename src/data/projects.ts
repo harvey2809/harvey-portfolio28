@@ -93,7 +93,6 @@ export const projects: Project[] = [
     heroImage: provincialpark,
     gallery: [park1,Park2,Park3],
     pdf:'${https://harvey2809.github.io/harvey-portfolio28}/pdfs/Maitland%20River%20Provincial%20Park%20Management%20Plan%20(1).pdf',
-    <a href={pdfUrl} target="_blank" rel="noopener noreferrer"></a>
   },
    {
     slug: "natural-heritage-evaluation",
