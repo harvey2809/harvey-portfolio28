@@ -1,8 +1,9 @@
 {
-  "name": "react-portfolio-template",
+ 
+  "name": "harvey-portfolio28",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://yujisatojr.github.io/react-portfolio-template",
+  "homepage": "https://harvey2809.github.io/harvey-portfolio28",
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
     "@emotion/react": "^11.11.4",
