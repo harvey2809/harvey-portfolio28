@@ -16,7 +16,7 @@ function Main() {
           <div className="social_icons">
             <a href="https://www.linkedin.com/in/h-b-harvy/" target="_blank" rel="noopener noreferrer"><LinkedInIcon/></a>
           </div>
-          <h1>Harvey Bhatti</h1><p> (Harvey)</p>
+          <h1>Hardeep Bhatti</h1><p> (Harvey)</p>
           <p>Land Use Planner</p>
 
           <div className="mobile_social_icons">
