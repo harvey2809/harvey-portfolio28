@@ -67,7 +67,7 @@ export const projects: Project[] = [
     thumbnail: designpage,
     heroImage: designpage,
     gallery: [mid1,mid2,mid3,mid4,mid5],
-    pdf: "https://github.com/harvey2809/harvey-portfolio28/blob/master/public/pdfs/PLANNING RATIONALE- Midrise_Lindsay.pdf",
+    pdf: "https://portfolio-bucket2809.s3.us-east-2.amazonaws.com/PLANNING+RATIONALE-+Midrise_Lindsay.pdf",
   },
   {
     slug: "ecological-compensation-plan",
