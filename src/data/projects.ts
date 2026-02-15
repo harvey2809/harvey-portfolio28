@@ -67,7 +67,7 @@ export const projects: Project[] = [
     thumbnail: designpage,
     heroImage: designpage,
     gallery: [mid1,mid2,mid3,mid4,mid5],
-    pdf: "/pdfs/mid-rise-residential-lindsay-on.pdf",
+    pdf: "https://github.com/harvey2809/harvey-portfolio28/blob/master/public/pdfs/PLANNING RATIONALE- Midrise_Lindsay.pdf",
   },
   {
     slug: "ecological-compensation-plan",
