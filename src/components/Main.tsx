@@ -9,7 +9,7 @@ function Main() {
     <div className="container">
       <div className="about-section">
         <div className="image-wrapper">
-          <img src=""
+          <img src="https://portfolio-bucket2809.s3.us-east-2.amazonaws.com/IMG_3110.PNG"
            alt="Avatar" />
         </div>
         <div className="content">
