@@ -79,7 +79,7 @@ export const projects: Project[] = [
     thumbnail: restorationplan,
     heroImage: restorationplan,
     gallery: [Picture7,Picture8,Picture9,Picture10,Picture11],
-    pdf: "https://github.com/harvey2809/harvey-portfolio28/blob/master/public/pdfs/Municipality%20of%20Port%20Hope-%20compensation%20plan%20(1).pdf",
+    pdf: "https://portfolio-bucket2809.s3.us-east-2.amazonaws.com/Municipality+of+Port+Hope-+compensation+plan.docx",
   },
  
   {
@@ -92,7 +92,7 @@ export const projects: Project[] = [
     thumbnail: provincialpark,
     heroImage: provincialpark,
     gallery: [park1,Park2,Park3],
-    pdf:"https://github.com/harvey2809/harvey-portfolio28/blob/master/public/pdfs/Maitland%20River%20Provincial%20Park%20Management%20Plan%20(1).pdf",
+    pdf:"https://portfolio-bucket2809.s3.us-east-2.amazonaws.com/Maitland+River+Provincial+Park+Management+Plan.docx",
   },
    {
     slug: "natural-heritage-evaluation",
