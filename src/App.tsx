@@ -1,11 +1,13 @@
 import React, {useState, useEffect} from "react";
 import { Routes, Route } from "react-router-dom";
 import ProjectDetails from "./components/ProjectDetails";
+import Mapping from "../components/Mapping";
 
 import {
   Main,
   Timeline,
   Expertise,
+  Mapping,
   Project,
   Contact,
   Navigation,
